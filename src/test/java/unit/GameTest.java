@@ -18,5 +18,11 @@ class GameTest {
         // assert
         assertThat(t.actWasCalled()).isTrue();
     }
+
+    @Test
+    void can_not_be_constructed_with_null_Table() {
+        assertThatThrownBy(() -> new Game(null)).hasMessage("Table can not be null.");
+    }
+
 }
 
