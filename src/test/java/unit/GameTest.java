@@ -4,7 +4,7 @@ import monsterpac.domain.Game;
 import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.Assertions.*;
 
-public class GameTest {
+class GameTest {
 
     @Test
     void act_calls_act_on_Table(){

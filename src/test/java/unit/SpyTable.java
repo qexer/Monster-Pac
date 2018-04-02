@@ -10,7 +10,7 @@ public class SpyTable extends Table {
         actWasCalled = true;
     }
 
-    public boolean actWasCalled() {
+    boolean actWasCalled() {
         return actWasCalled;
     }
 }
