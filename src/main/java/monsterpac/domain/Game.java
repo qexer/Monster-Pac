@@ -14,4 +14,8 @@ public class Game {
     public void act() {
         this.table.act();
     }
+
+    public boolean playerWon() {
+        return !this.table.hasAnyFruitLeft() && this.table.playerIsAlive();
+    }
 }
