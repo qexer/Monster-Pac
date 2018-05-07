@@ -1,7 +1,4 @@
-/**
- * <h1>Enemy osztály</h1>
- * A táblán elhelyezkedő ellenségek reprezentálására szolgál.
- */
+// TODO: #import Position #import Field #import Orientation
 public class Enemy extends Movable{
 
 }
