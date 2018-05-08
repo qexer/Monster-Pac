@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Map;
 import java.util.HashMap;
 
-public class Table() {
+public class Table {
 	/**
 	* Init score
 	*/
@@ -61,8 +61,8 @@ public class Table() {
 	}
 
 	private boolean outOfRange( Position p ) {
-		int x = p.get(x);
-		int y = p.get(y);
+		int x = p.getX();
+		int y = p.getY();
 
 		return ( 
 			x < 0 || x > this.FIELD_X_MAX ||
@@ -71,11 +71,11 @@ public class Table() {
 	}
 
 	private Field getFieldByPos( Position p ) {
-		return this.fields[p.get(x)][p.get(y)];
+		return this.fields[p.getX()][p.getY()];
 	}
 
-	private void moveTo( Movable m, Position new ) {
-		this.positions.put(m, new);
+	private void moveTo( Movable m, Position p ) {
+		this.positions.put(m, p);
 	}
 
 	public void moveAll() {
@@ -94,5 +94,5 @@ public class Table() {
 
 	public Player getPlayer() { return this.player; }
 
-	public int scoreLeft() { return this.score; }
+	public int scoreLeft() { return this.initialScore; }
 }
