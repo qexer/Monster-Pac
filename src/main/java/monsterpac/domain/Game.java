@@ -18,4 +18,11 @@ public class Game {
     public boolean playerWon() {
         return !this.table.hasAnyFruitLeft() && this.table.playerIsAlive();
     }
+
+    public boolean notEnded() {
+        if(playerWon()){
+            return false;
+        }
+        return this.table.playerIsAlive();
+    }
 }

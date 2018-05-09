@@ -81,6 +81,61 @@ class GameTest {
         assertThat(game.playerWon()).isFalse();
     }
 
-    
+    @Test
+    void game_has_not_ended_because_player_is_alive() {
+        //arrange
+        FakeTable t = new FakeTable();
+        t.setplayerIsAlive(true);
+        Game game = new Game(t);
+
+        //act
+        game.act();
+
+        //assert
+        assertThat(game.notEnded()).isTrue();
+    }
+
+    @Test
+    void game_ended_when_player_is_dead() {
+        //arrange
+        FakeTable t = new FakeTable();
+        t.setplayerIsAlive(false);
+        Game game = new Game(t);
+
+        //act
+        game.act();
+
+        //assert
+        assertThat(game.notEnded()).isFalse();
+    }
+
+    @Test
+    void game_ended_when_playerWon() {
+        //arrange
+        FakeTable t = new FakeTable();
+        t.setplayerIsAlive(false);
+        Game game = new Game(t);
+
+        //act
+        game.act();
+
+        //assert
+        assertThat(game.notEnded()).isFalse();
+    }
+
+    @Test
+    void game_not_ended_when_player_not_won_and_playerIsAlive() {
+        //arrange
+        FakeTable t = new FakeTable();
+        t.setplayerIsAlive(true);
+        t.setHasAnyFruitLeft(true);
+        Game game = new Game(t);
+
+        //act
+        game.act();
+
+        //assert
+        assertThat(game.notEnded()).isTrue();
+    }
 }
 
