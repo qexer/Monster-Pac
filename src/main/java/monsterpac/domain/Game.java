@@ -16,9 +16,12 @@ public class Game {
     }
 
     public boolean playerWon() {
+        return !this.table.hasScoreLeft() && this.table.playerIsAlive(); //@TODO add Table.playerIsAlive() to UML diagram or implement it here
     }
 
-    public boolean notEnded() {
+    //@TODO remove playerLost() from UML diagram
+
+    public boolean notEnded() { //@TODO rename in UML diagram
         if(playerWon()){
             return false;
         }
