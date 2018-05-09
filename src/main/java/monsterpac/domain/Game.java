@@ -12,7 +12,7 @@ public class Game {
     }
 
     public void act() {
-        this.table.act();
+        this.table.moveAll();
     }
 
     public boolean playerWon() {

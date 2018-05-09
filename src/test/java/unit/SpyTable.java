@@ -6,7 +6,7 @@ public class SpyTable extends Table {
     private boolean actWasCalled = false;
 
     @Override
-    public void act(){
+    public void moveAll(){
         actWasCalled = true;
     }
 

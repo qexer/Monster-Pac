@@ -2,7 +2,7 @@ package monsterpac.domain;
 
 public abstract class Table {
 
-    public void act(){
+    public void moveAll(){
         //TODO slaci95
     }
 
