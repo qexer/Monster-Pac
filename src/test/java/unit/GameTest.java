@@ -28,6 +28,7 @@ class GameTest {
     void player_wins_when_no_fruit_left_and_player_is_alive() {
         // arrange
         FakeTable t = new FakeTable();
+        t.setHasAnyFruitLeft(false);
         Game game = new Game(t);
 
         // act
@@ -36,5 +37,50 @@ class GameTest {
         // assert
         assertThat(game.playerWon()).isTrue();
     }
+
+    @Test
+    void player_not_wins_when_any_fruit_is_on_Table() {
+        //arrange
+        FakeTable t = new FakeTable();
+        t.setHasAnyFruitLeft(true);
+        Game game = new Game(t);
+
+        //act
+        game.act();
+
+        //assert
+        assertThat(game.playerWon()).isFalse();
+    }
+
+    @Test
+    void player_not_wins_when_player_is_not_alive() {
+        //arrange
+        FakeTable t = new FakeTable();
+        t.setplayerIsAlive(false);
+        Game game = new Game(t);
+
+        //act
+        game.act();
+
+        //assert
+        assertThat(game.playerWon()).isFalse();
+    }
+
+    @Test
+    void player_not_wins_when_player_is_not_alive_and_has_any_fruit_on_Table() {
+        //arrange
+        FakeTable t = new FakeTable();
+        t.setplayerIsAlive(false);
+        t.setHasAnyFruitLeft(true);
+        Game game = new Game(t);
+
+        //act
+        game.act();
+
+        //assert
+        assertThat(game.playerWon()).isFalse();
+    }
+
+    
 }
 

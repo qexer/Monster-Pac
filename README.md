@@ -35,5 +35,5 @@ Az alkalmazás jelenleg nem futtatható. Az értékelhető tartalmak
 - a Rendszerterv
 - [Game.java](/src/main/java/monsterpac/domain/Game.java)
 - [GameTest.java](/src/test/java/unit/GameTest.java)
-- [FakeTable.java](/src/test/java/unit/FakeTable.java	)
+- [FakeTable.java](/src/test/java/unit/FakeTable.java)
 - [SpyTable.java](/src/test/java/unit/SpyTable.java)
