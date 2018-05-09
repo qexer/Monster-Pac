@@ -25,10 +25,10 @@ class GameTest {
     }
 
     @Test
-    void player_wins_when_no_fruit_left_and_player_is_alive() {
+    void player_wins_when_no_score_left_and_player_is_alive() {
         // arrange
         FakeTable t = new FakeTable();
-        t.setHasAnyFruitLeft(false);
+        t.setHasScoreLeft(false);
         Game game = new Game(t);
 
         // act
@@ -39,10 +39,10 @@ class GameTest {
     }
 
     @Test
-    void player_not_wins_when_any_fruit_is_on_Table() {
+    void player_not_wins_when_any_score_is_on_Table() {
         //arrange
         FakeTable t = new FakeTable();
-        t.setHasAnyFruitLeft(true);
+        t.setHasScoreLeft(true);
         Game game = new Game(t);
 
         //act
@@ -56,7 +56,7 @@ class GameTest {
     void player_not_wins_when_player_is_not_alive() {
         //arrange
         FakeTable t = new FakeTable();
-        t.setplayerIsAlive(false);
+        t.setPlayerIsAlive(false);
         Game game = new Game(t);
 
         //act
@@ -67,11 +67,11 @@ class GameTest {
     }
 
     @Test
-    void player_not_wins_when_player_is_not_alive_and_has_any_fruit_on_Table() {
+    void player_not_wins_when_player_is_not_alive_and_has_any_score_on_Table() {
         //arrange
         FakeTable t = new FakeTable();
-        t.setplayerIsAlive(false);
-        t.setHasAnyFruitLeft(true);
+        t.setPlayerIsAlive(false);
+        t.setHasScoreLeft(true);
         Game game = new Game(t);
 
         //act
@@ -85,7 +85,7 @@ class GameTest {
     void game_has_not_ended_because_player_is_alive() {
         //arrange
         FakeTable t = new FakeTable();
-        t.setplayerIsAlive(true);
+        t.setPlayerIsAlive(true);
         Game game = new Game(t);
 
         //act
@@ -99,7 +99,7 @@ class GameTest {
     void game_ended_when_player_is_dead() {
         //arrange
         FakeTable t = new FakeTable();
-        t.setplayerIsAlive(false);
+        t.setPlayerIsAlive(false);
         Game game = new Game(t);
 
         //act
@@ -113,7 +113,7 @@ class GameTest {
     void game_ended_when_playerWon() {
         //arrange
         FakeTable t = new FakeTable();
-        t.setplayerIsAlive(false);
+        t.setPlayerIsAlive(false);
         Game game = new Game(t);
 
         //act
@@ -127,8 +127,8 @@ class GameTest {
     void game_not_ended_when_player_not_won_and_playerIsAlive() {
         //arrange
         FakeTable t = new FakeTable();
-        t.setplayerIsAlive(true);
-        t.setHasAnyFruitLeft(true);
+        t.setPlayerIsAlive(true);
+        t.setHasScoreLeft(true);
         Game game = new Game(t);
 
         //act

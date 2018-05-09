@@ -16,7 +16,7 @@ public class Game {
     }
 
     public boolean playerWon() {
-        return !this.table.hasAnyFruitLeft() && this.table.playerIsAlive();
+        return !this.table.hasScoreLeft() && this.table.playerIsAlive();
     }
 
     public boolean notEnded() {

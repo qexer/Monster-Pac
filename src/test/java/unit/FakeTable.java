@@ -4,12 +4,12 @@ import monsterpac.domain.Table;
 
 public class FakeTable extends Table {
 
-    private boolean hasAnyFruitLeft = true;
+    private boolean hasScoreLeft = true;
     private boolean playerIsAlive = true;
 
     @Override
-    public boolean hasAnyFruitLeft(){
-        return hasAnyFruitLeft;
+    public boolean hasScoreLeft(){
+        return hasScoreLeft;
     }
 
     @Override
@@ -17,11 +17,11 @@ public class FakeTable extends Table {
         return playerIsAlive;
     }
 
-    public void setHasAnyFruitLeft(boolean value){
-        this.hasAnyFruitLeft = value;
+    public void setHasScoreLeft(boolean value){
+        this.hasScoreLeft = value;
     }
 
-    public void setplayerIsAlive(boolean value){
+    public void setPlayerIsAlive(boolean value){
         this.playerIsAlive = value;
     }
 }

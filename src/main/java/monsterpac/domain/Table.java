@@ -6,7 +6,7 @@ public abstract class Table {
         //TODO slaci95
     }
 
-    public boolean hasAnyFruitLeft(){
+    public boolean hasScoreLeft(){
         return true;
     }
     public boolean playerIsAlive(){
