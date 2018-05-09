@@ -6,7 +6,7 @@ public abstract class Table {
         //TODO slaci95
     }
 
-    public boolean hasScoreLeft(){
+    public boolean hasScoreLeft(){ //@TODO add to UML diagram
         return true;
     }
     public boolean playerIsAlive(){
