@@ -14,9 +14,6 @@ public class Movable {
         }
         return pos;
     }
-    void interactWith(Field f){
-
-    }
+    void interactWith(Field f){}
     void setOrientation(Orientation o){ orientation = o; }
-
 }
