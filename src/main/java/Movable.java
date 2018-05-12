@@ -1,7 +1,3 @@
-import Position;
-import Field;
-import Orientation;
-
 /**
  * <h1>Movable osztály</h1>
  * A táblán lévő minden mozgatható objektum alapja. Ebből származik a Player és az Enemy osztály.
@@ -10,7 +6,7 @@ import Orientation;
 // X means the horizontal line on the game table
 
 public class Movable {
-    Orientation orientation;
+    Orientations orientations;
     Position pos;
 
     /**
@@ -19,11 +15,11 @@ public class Movable {
      * @return
      */
     Position MoveFrom(Position p){
-        switch(orientation){
-            case "UP": pos.setY(pos.getY()-1); break;
-            case "DOWN": pos.setY(pos.getY()+1); break;
-            case "LEFT": pos.setX(pos.getX()-1); break;
-            case "RIGHT": pos.setX(pos.getX()+1); break;
+        switch(orientations){
+            case UP: pos.setY(pos.getY()-1); break;
+            case DOWN: pos.setY(pos.getY()+1); break;
+            case LEFT: pos.setX(pos.getX()-1); break;
+            case RIGHT: pos.setX(pos.getX()+1); break;
         }
         return pos;
     }
@@ -38,5 +34,5 @@ public class Movable {
      * Irányt beállító metódus.
      * @param o Irány
      */
-    void setOrientation(Orientation o){ orientation = o; }
+    void setOrientations(Orientations o){ orientations = o; }
 }
