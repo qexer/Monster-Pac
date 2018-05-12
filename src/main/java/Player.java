@@ -1,7 +1,3 @@
-import Position;
-import Field;
-import Orientation;
-
 /**
  * <h1>Player osztály</h1>
  * A táblán elhelyezkedő játékos reprezentálására szolgál.
