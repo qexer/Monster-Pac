@@ -9,7 +9,7 @@
 [PlayerController
   |player: Player
   |handleUserInput(char)]o-[Player]
-[Table
+[monsterpac.domain.Table
   |initialScore: int;
    player: Player;
    movables: Movable\[\];
@@ -54,8 +54,8 @@
    DOWN;
    RIGHT]
 
-[Table]o- +[Field]
-[Table]--[<note>moveAll()
+[monsterpac.domain.Table]o- +[Field]
+[monsterpac.domain.Table]--[<note>moveAll()
 _foreach m in movables
 __positionOfM = positionOfMovables\[m\]
 __newPositionOfM = m.moveFrom(positionOfM)
@@ -68,13 +68,13 @@ ___m.interactWith(target)
 ___moveFromTo(m, positionOfM, newPositionOfM)
 ]
 
-//[Table]o-[Player]
-//[Table]o-1..n[Enemy]
-//[Table]o-1..m[Item]
+//[monsterpac.domain.Table]o-[Player]
+//[monsterpac.domain.Table]o-1..n[Enemy]
+//[monsterpac.domain.Table]o-1..m[Item]
 
 [GameController]o-[Game]
 
-[Game]o-[Table]
+[Game]o-[monsterpac.domain.Table]
 
 [Field]o-0..1[Movable]
 

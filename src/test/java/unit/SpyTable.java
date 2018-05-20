@@ -5,6 +5,10 @@ import monsterpac.domain.Table;
 public class SpyTable extends Table {
     private boolean actWasCalled = false;
 
+    public SpyTable(){
+        super(null);
+    }
+
     @Override
     public void moveAll(){
         actWasCalled = true;

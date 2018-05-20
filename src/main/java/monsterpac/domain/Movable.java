@@ -16,7 +16,7 @@ public class Movable {
      * @param p Jelenlegi irány
      * @return
      */
-    Position MoveFrom(Position p){
+    Position moveFrom(Position p){
         switch(orientations){
             case UP: pos.setY(pos.getY()-1); break;
             case DOWN: pos.setY(pos.getY()+1); break;
