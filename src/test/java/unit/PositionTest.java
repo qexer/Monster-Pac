@@ -1,7 +1,8 @@
-//TODO: package unit;
-//TODO: import Position class; ha átrakod majd más helyre;
-import org.junit.Test;
-import static org.junit.Assert.*;
+package unit;
+
+import monsterpac.domain.Position;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class PositionTest {
     Position pos1 = new Position(-4, -6);
