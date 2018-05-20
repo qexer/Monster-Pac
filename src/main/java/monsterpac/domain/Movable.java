@@ -12,20 +12,11 @@ public class Movable {
     Position pos;
 
     /**
-     * Getter
-     * @return Az adott elem pozíciója
-     */
-    public Position getPosition() {
-        return pos;
-    }
-
-
-    /**
      * Mozgást leíró metódus. A jelenlegi iránynak megfelelően lép egy mezőt a táblán.
-     * @param p Jelenlegi irány
-     * @return Hova fog lépni
+     * @param p Jelenlegi pozíció
+     * @return Az új pozíció
      */
-    Position MoveFrom(Position p){
+    public Position moveFrom(Position p){
         switch(orientations){
             case UP: pos.setY(pos.getY()-1); break;
             case DOWN: pos.setY(pos.getY()+1); break;
@@ -45,5 +36,5 @@ public class Movable {
      * Irányt beállító metódus.
      * @param o Irány
      */
-    void setOrientations(Orientations o){ orientations = o; }
+    public void setOrientations(Orientations o){ orientations = o; }
 }

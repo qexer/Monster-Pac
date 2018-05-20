@@ -4,6 +4,10 @@ import monsterpac.domain.Table;
 
 public class FakeTable extends Table {
 
+    public FakeTable(){
+        super(null, null);
+    }
+
     private boolean hasScoreLeft = true;
     private boolean playerIsAlive = true;
 
