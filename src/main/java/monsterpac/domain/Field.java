@@ -12,7 +12,7 @@ public class Field {
     /**
      * Konstruktor
      * @param score Van-e ott (begyűjthető) pont?
-     * @param passable Át lehet-e menni a mezőn?
+     * @param passable At lehet-e menni a mezőn?
      * @param mov A mezőn álló, mozogni képes figura
      */
     public Field(boolean score, boolean passable, Movable mov){

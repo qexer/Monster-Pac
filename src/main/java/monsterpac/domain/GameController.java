@@ -1,5 +1,7 @@
 package monsterpac.domain;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
@@ -10,7 +12,7 @@ import java.util.concurrent.TimeUnit;
 public class GameController {
     private final Game game;
     private final ScheduledExecutorService ses;
-
+    
     /**
      * Létrehoz egy GameController példányt.
      * @param game A vezérelt játék.

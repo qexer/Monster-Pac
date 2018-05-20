@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package monsterpac.domain;
+package monsterpac.view;
 
 import java.awt.BorderLayout;
 import java.awt.Container;
@@ -18,6 +18,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import monsterpac.domain.GameController;
 
 /**
  *
@@ -29,11 +30,11 @@ public class BaseView extends JFrame {
     
     protected final ArrayList<BaseView> views;
     
-    //protected GameController controller;
+    protected GameController controller;
     
-    public BaseView( /*GameController controller*/ ) {
+    public BaseView( GameController controller ) {
         super();
-        //this.controller = controller;
+        this.controller = controller;
         this.setDefaultCloseOperation( EXIT_ON_CLOSE );
         this.setResizable(false);
         this.setSize(480, 640);
@@ -74,5 +75,9 @@ public class BaseView extends JFrame {
         this.getContentPane().add(p);
         this.pack();
         this.open();
+    }
+    
+    public GameController getController() {
+        return this.controller;
     }
 }

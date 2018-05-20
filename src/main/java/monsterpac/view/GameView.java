@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package monsterpac.domain;
+package monsterpac.view;
 
 import java.awt.Component;
 import java.awt.Dimension;
@@ -11,6 +11,7 @@ import java.awt.GridLayout;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import monsterpac.domain.GameController;
 
 /**
  *
@@ -21,8 +22,8 @@ public class GameView extends BaseView{
     private InfoPanelView info;
     private tablePanelView table;
     
-    public GameView( /*GameController controller*/ ) {
-        super();
+    public GameView( GameController controller ) {
+        super( controller );
         this.title( "Game" );
         this.info = new InfoPanelView();
         this.table = new tablePanelView();
@@ -49,4 +50,11 @@ public class GameView extends BaseView{
         this.addPane( this.table );
     }
     
+    public void afterGameRun() {
+        this.updateView();
+    }
+    
+    private void updateView() {
+        
+    }
 }
