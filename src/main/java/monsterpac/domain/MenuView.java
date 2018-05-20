@@ -69,5 +69,8 @@ public class MenuView extends BaseView{
         
     }
     
-    
+    public static void main(String[] args) {
+        
+        
+    }
 }

@@ -13,8 +13,8 @@ public class GameController implements ActionListener{
     private final Game game;
     private final ScheduledExecutorService ses;
 
-    GameView gameView;
-    MenuView menuView;
+    private GameView gameView;
+    private MenuView menuView;
     
     /**
      * Létrehoz egy GameController példányt.
