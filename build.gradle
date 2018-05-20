@@ -1,5 +1,5 @@
 //noinspection GroovyAssignabilityCheck
-version '1.0-SNAPSHOT'
+version '1.0.0'
 
 apply plugin: 'java'
 
@@ -13,8 +13,17 @@ dependencies {
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.1.0'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.1.0'
     testCompile 'org.assertj:assertj-core:3.9.0'
+    implementation 'commons-io:commons-io:2.6'
 }
 
 test {
     useJUnitPlatform()
+}
+
+jar {
+    manifest {
+        attributes(
+                'Main-Class': 'monsterpac.main.Main'
+        )
+    }
 }
