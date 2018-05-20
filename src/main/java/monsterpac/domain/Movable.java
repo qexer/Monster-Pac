@@ -13,10 +13,10 @@ public class Movable {
 
     /**
      * Mozgást leíró metódus. A jelenlegi iránynak megfelelően lép egy mezőt a táblán.
-     * @param p Jelenlegi irány
-     * @return
+     * @param p Jelenlegi pozíció
+     * @return Az új pozíció
      */
-    Position moveFrom(Position p){
+    public Position moveFrom(Position p){
         switch(orientations){
             case UP: pos.setY(pos.getY()-1); break;
             case DOWN: pos.setY(pos.getY()+1); break;
