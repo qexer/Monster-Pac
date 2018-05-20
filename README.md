@@ -47,6 +47,10 @@ A diagram frissítéséhez
 7. az új képpel írd felül a [class_diagram.png](/img/class_diagram.png) fájlt	
 8. commit, push, chill
 
+### Tesztlefedettség
+
+Lásd a (nem build server által generált) _Code Coverage Report_-ot [itt](http://people.inf.elte.hu/ithil/monsterpac-coverage/index.html)!
+
 ### Jövőbeli tervek
 
 Új pályák, és fejlettebb mesterséges intelligencia hozzáadása a játékhoz. Emellett a grafikai részt szeretnénk még kicsit csinosítani.
