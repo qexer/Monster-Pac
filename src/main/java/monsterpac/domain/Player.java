@@ -4,7 +4,7 @@ package monsterpac.domain;
  * A táblán elhelyezkedő játékos reprezentálására szolgál.
  */
 public class Player extends Movable {
-    boolean isAlive;
+    boolean isAlive = true;
     int score;
 
     /**
@@ -22,14 +22,14 @@ public class Player extends Movable {
     /**
      * Ha a játékos elhalálozik, akkor ez a metódus felelős az isAlive adattag megváltoztatásáért.
      */
-    void die(){ isAlive = false; }
+    public void die(){ isAlive = false; }
 
     /**
      * Mezővel való interakció
      * @param f Mező
      */
     @Override
-    void interactWith(Field f){
+    public void interactWith(Field f){
         if(f.hasScore()){f.pickUpScore();}
         if(f.getMovable() instanceof Enemy){ die(); }
     }

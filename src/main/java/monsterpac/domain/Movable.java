@@ -9,7 +9,6 @@ package monsterpac.domain;
 
 public class Movable {
     Orientations orientations;
-    Position pos;
 
     /**
      * Mozgást leíró metódus. A jelenlegi iránynak megfelelően lép egy mezőt a táblán.
@@ -18,19 +17,19 @@ public class Movable {
      */
     public Position moveFrom(Position p){
         switch(orientations){
-            case UP: pos.setY(pos.getY()-1); break;
-            case DOWN: pos.setY(pos.getY()+1); break;
-            case LEFT: pos.setX(pos.getX()-1); break;
-            case RIGHT: pos.setX(pos.getX()+1); break;
+            case UP: p.setY(p.getY()-1); break;
+            case DOWN: p.setY(p.getY()+1); break;
+            case LEFT: p.setX(p.getX()-1); break;
+            case RIGHT: p.setX(p.getX()+1); break;
         }
-        return pos;
+        return p;
     }
 
     /**
      * Mezővel való interakció
      * @param f Mező
      */
-    void interactWith(Field f){}
+    public void interactWith(Field f){}
 
     /**
      * Irányt beállító metódus.
