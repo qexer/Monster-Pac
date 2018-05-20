@@ -32,16 +32,14 @@ public class Game {
      * @return true ha a játékos nyert; egyébként false
      */
     public boolean playerWon() {
-        return !this.table.hasScoreLeft() && this.table.playerIsAlive(); //@TODO add Table.playerIsAlive() to UML diagram or implement it here
+        return !this.table.hasScoreLeft() && this.table.playerIsAlive();
     }
-
-    //@TODO remove playerLost() from UML diagram
 
     /**
      * Megadja, hogy a játék véget ért-e vagy sem.
      * @return false ha a játék véget ért; egyébként true
      */
-    public boolean notEnded() { //@TODO rename in UML diagram
+    public boolean notEnded() {
         if(playerWon()){
             return false;
         }

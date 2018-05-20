@@ -1,8 +1,7 @@
 [Game
   |act();
    playerWon(): boolean;
-   playerLost(): boolean;
-   ended(): boolean]
+   notEnded(): boolean]
 [GameController
   |timer: Timer
   |start();
@@ -19,6 +18,8 @@
   |moveAll();
    scoreLeft(): int;
    getPlayer(): Player;
+   playerIsAlive(): boolean;
+   hasScoreLeft(): boolean;
    private outOfRange(Position): boolean;
    private moveFromTo(Movable, Position, Position)]
 
