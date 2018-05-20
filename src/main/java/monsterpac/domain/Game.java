@@ -1,7 +1,7 @@
 package monsterpac.domain;
 
 /**
- * Felelőssége egy monsterpac.domain.Table objektum vezérlése és felület biztosítása a játék végének
+ * Felelőssége egy Table objektum vezérlése és felület biztosítása a játék végének
  * és kimenetelének lekérdezéséhez.
  */
 public class Game {
@@ -10,12 +10,12 @@ public class Game {
 
     /**
      * Létrehoz egy Game példányt.
-     * @param table A vezérelt monsterpac.domain.Table példány.
+     * @param table A vezérelt Table példány.
      * @throws IllegalArgumentException Ha a table null.
      */
     public Game(Table table) {
         if(table == null){
-            throw new IllegalArgumentException("monsterpac.domain.Table can not be null.");
+            throw new IllegalArgumentException("Table can not be null.");
         }
         this.table = table;
     }

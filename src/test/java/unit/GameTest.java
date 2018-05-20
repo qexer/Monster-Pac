@@ -21,7 +21,7 @@ class GameTest {
 
     @Test
     void can_not_be_constructed_with_null_Table() {
-        assertThatThrownBy(() -> new Game(null)).hasMessage("monsterpac.domain.Table can not be null.");
+        assertThatThrownBy(() -> new Game(null)).hasMessage("Table can not be null.");
     }
 
     @Test
