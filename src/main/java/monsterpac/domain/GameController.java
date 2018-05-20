@@ -1,5 +1,7 @@
 package monsterpac.domain;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
@@ -7,16 +9,26 @@ import java.util.concurrent.TimeUnit;
 /**
  * A játék vezérléséért felel.
  */
-public class GameController {
+public class GameController implements ActionListener{
     private final Game game;
     private final ScheduledExecutorService ses;
 
+    GameView gameView;
+    MenuView menuView;
+    
     /**
      * Létrehoz egy GameController példányt.
      * @param game A vezérelt játék.
      */
     public GameController(Game game) {
         this.game = game;
+        
+        this.gameView = new GameView(this);
+        this.menuView = new MenuView(this);
+        
+        this.menuView.open();
+        this.gameView.close();
+        
         ses = Executors.newSingleThreadScheduledExecutor();
     }
 
@@ -61,5 +73,16 @@ public class GameController {
             return "LOSE";
         }
 
+    }
+    
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        String command = e.getActionCommand();
+        
+        switch ( command ) {
+            case "<html><div><center>Start</center></div></html>":
+                this.menuView.close();
+                this.gameView.open();
+        }
     }
 }

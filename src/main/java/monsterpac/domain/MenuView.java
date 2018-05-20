@@ -18,10 +18,10 @@ import javax.swing.JPanel;
  *
  * @author still
  */
-public class MenuView extends BaseView implements ActionListener{
+public class MenuView extends BaseView{
     
-    public MenuView( /*GameController controller*/ ) {
-        super(  );
+    public MenuView( GameController controller ) {
+        super( controller );
         this.title( "Menu" );
         this.init();
     }
@@ -61,7 +61,7 @@ public class MenuView extends BaseView implements ActionListener{
         JButton btn = new JButton("<html><div><center>Start</center></div></html>");
         btn.setFocusable( false);
         btn.setAlignmentX(Component.CENTER_ALIGNMENT);
-        btn.addActionListener(this);
+        btn.addActionListener( this.controller );
         btnPanel.add( btn );        
         
         this.addPane(titlePanel);
@@ -69,18 +69,5 @@ public class MenuView extends BaseView implements ActionListener{
         
     }
     
-    public static void main(String args[] ) {
-        new MenuView();
-    }
     
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        String command = e.getActionCommand();
-        
-        switch ( command ) {
-            case "<html><div><center>Start</center></div></html>":
-                this.close();
-                new GameView();
-        }
-    }
 }
