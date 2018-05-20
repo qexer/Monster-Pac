@@ -12,17 +12,17 @@ public class Movable {
 
     /**
      * Mozgást leíró metódus. A jelenlegi iránynak megfelelően lép egy mezőt a táblán.
-     * @param p Jelenlegi pozíció
+     * @param position Jelenlegi pozíció
      * @return Az új pozíció
      */
-    public Position moveFrom(Position p){
+    public Position moveFrom(Position position){
         switch(orientations){
-            case UP: p.setY(p.getY()-1); break;
-            case DOWN: p.setY(p.getY()+1); break;
-            case LEFT: p.setX(p.getX()-1); break;
-            case RIGHT: p.setX(p.getX()+1); break;
+            case UP: position.setY(position.getY()-1); break;
+            case DOWN: position.setY(position.getY()+1); break;
+            case LEFT: position.setX(position.getX()-1); break;
+            case RIGHT: position.setX(position.getX()+1); break;
         }
-        return p;
+        return position;
     }
 
     /**
