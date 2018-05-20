@@ -37,15 +37,15 @@ TODO link bináris fájl
 
 #### Hogyan szerkeszd
  	 
--A diagram frissítéséhez	+Az alkalmazás a bináris fájl letöltése után egyből futtatható.
--1. nyisd meg a [nomnoml](http://www.nomnoml.com/) online diagram szerkesztőt	
--2. töröld ki a szövegszerkesztője tartalmát	
--3. másold be a [class_diagram.txt](/img/class_diagram.txt) fájl tartalmát	
--4. végezd el a módosítást a szerkesztőben	
--5. a végleges verzióval írd felül a [class_diagram.txt](/img/class_diagram.txt) fájl tartalmát	
--6. a 📷 gombbal exportáld ki képként a diagramot	
--7. az új képpel írd felül a [class_diagram.png](/img/class_diagram.png) fájlt	
--8. commit, push, chill
+A diagram frissítéséhez
+1. nyisd meg a [nomnoml](http://www.nomnoml.com/) online diagram szerkesztőt	
+2. töröld ki a szövegszerkesztője tartalmát	
+3. másold be a [class_diagram.txt](/img/class_diagram.txt) fájl tartalmát	
+4. végezd el a módosítást a szerkesztőben	
+5. a végleges verzióval írd felül a [class_diagram.txt](/img/class_diagram.txt) fájl tartalmát	
+6. a 📷 gombbal exportáld ki képként a diagramot	
+7. az új képpel írd felül a [class_diagram.png](/img/class_diagram.png) fájlt	
+8. commit, push, chill
 
 ### Jövőbeli tervek
 
