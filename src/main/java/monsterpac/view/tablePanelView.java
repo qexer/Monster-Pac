@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package monsterpac.domain;
+package monsterpac.view;
 
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -15,6 +15,10 @@ import java.util.Map;
 import java.util.Map.Entry;
 import javax.swing.BorderFactory;
 import javax.swing.border.Border;
+import monsterpac.domain.Enemy;
+import monsterpac.domain.Movable;
+import monsterpac.domain.Player;
+import monsterpac.domain.Position;
 
 /**
  *

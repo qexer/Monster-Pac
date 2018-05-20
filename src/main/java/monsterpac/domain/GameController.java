@@ -9,12 +9,9 @@ import java.util.concurrent.TimeUnit;
 /**
  * A játék vezérléséért felel.
  */
-public class GameController implements ActionListener{
+public class GameController {
     private final Game game;
     private final ScheduledExecutorService ses;
-
-    private GameView gameView;
-    private MenuView menuView;
     
     /**
      * Létrehoz egy GameController példányt.
@@ -22,13 +19,6 @@ public class GameController implements ActionListener{
      */
     public GameController(Game game) {
         this.game = game;
-        
-        this.gameView = new GameView(this);
-        this.menuView = new MenuView(this);
-        
-        this.menuView.open();
-        this.gameView.close();
-        
         ses = Executors.newSingleThreadScheduledExecutor();
     }
 
@@ -73,16 +63,5 @@ public class GameController implements ActionListener{
             return "LOSE";
         }
 
-    }
-    
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        String command = e.getActionCommand();
-        
-        switch ( command ) {
-            case "<html><div><center>Start</center></div></html>":
-                this.menuView.close();
-                this.gameView.open();
-        }
     }
 }

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package monsterpac.domain;
+package monsterpac.view;
 
 import java.awt.Component;
 import java.awt.Dimension;
@@ -11,6 +11,7 @@ import java.awt.GridLayout;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import monsterpac.domain.GameController;
 
 /**
  *

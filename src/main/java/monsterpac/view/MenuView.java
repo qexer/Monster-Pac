@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package monsterpac.domain;
+package monsterpac.view;
 
 import java.awt.Component;
 import java.awt.Dimension;
@@ -13,12 +13,14 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import monsterpac.domain.GameController;
+import monsterpac.main.Main;
 
 /**
  *
  * @author still
  */
-public class MenuView extends BaseView{
+public class MenuView extends BaseView implements ActionListener {
     
     public MenuView( GameController controller ) {
         super( controller );
@@ -61,7 +63,7 @@ public class MenuView extends BaseView{
         JButton btn = new JButton("<html><div><center>Start</center></div></html>");
         btn.setFocusable( false);
         btn.setAlignmentX(Component.CENTER_ALIGNMENT);
-        btn.addActionListener( this.controller );
+        btn.addActionListener( this);
         btnPanel.add( btn );        
         
         this.addPane(titlePanel);
@@ -69,8 +71,15 @@ public class MenuView extends BaseView{
         
     }
     
-    public static void main(String[] args) {
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        String command = e.getActionCommand();
         
-        
+        switch ( command ) {
+            case "<html><div><center>Start</center></div></html>":
+                Main.menu.close();
+                Main.table.open();
+                break;
+        }
     }
 }
