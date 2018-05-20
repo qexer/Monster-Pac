@@ -5,6 +5,7 @@
  */
 package monsterpac.main;
 
+import monsterpac.domain.Factory;
 import monsterpac.domain.GameController;
 import monsterpac.view.MenuView;
 import monsterpac.view.GameView;
@@ -19,8 +20,7 @@ public class Main {
     public static GameView table;
     
     public static void main( String args[] ) {
-        //@TODO: Factory
-        GameController controller = null;
+        GameController controller = Factory.createGameController();
         
         Main.menu = new MenuView( controller );
         Main.table = new GameView( controller );
