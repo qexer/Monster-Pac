@@ -3,6 +3,9 @@ package monsterpac.domain;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+/**
+ * Responsible for controlling movables, collision detection, and interactions between movables.
+ */
 public class Table {
 
     /**
@@ -14,11 +17,6 @@ public class Table {
      * Horizontal length of table (width)
      */
     private final int FIELD_Y_MAX;
-
-    /**
-     * Init score
-     */
-    private final int initialScore;
 
     /**
      * The Player object
@@ -41,6 +39,11 @@ public class Table {
     private HashMap<Movable, Position> positions;
 
 
+    /**
+     * Creates a new instance of Table.
+     * @param player The player on the table.
+     * @param fields The fields of the table.
+     */
     public Table(Player player, Field[][] fields) {
 
         this.player = player;
@@ -49,7 +52,6 @@ public class Table {
         this.FIELD_Y_MAX = fields[0].length;
 
         this.movables = this.getMovablesFromFields();
-        this.initialScore = this.getInitialScoreFromField();
         this.positions = this.getPositionsOfMovablesFromFields();
 
     }
@@ -74,27 +76,6 @@ public class Table {
         }
 
         return movables;
-    }
-
-    /**
-     * Gets the initial score from the fields matrix
-     *
-     * @return The initial score
-     */
-    private int getInitialScoreFromField() {
-        int is = 0;
-
-        for (int i = 0; i < this.fields.length; ++i) {
-            for (int j = 0; j < this.fields[i].length; ++j) {
-                Field f = this.fields[i][j];
-
-                if (f.hasScore()) {
-                    ++is;
-                }
-            }
-        }
-
-        return is;
     }
 
     /**
@@ -169,18 +150,46 @@ public class Table {
         }
     }
 
+    /**
+     * Gets the player.
+     * @return The player.
+     */
     public Player getPlayer() {
         return this.player;
     }
 
+    /**
+     * Get how much score has left.
+     * @return How much score has left.
+     */
     public int scoreLeft() {
-        return this.initialScore;
+        int scoreLeft = 0;
+
+        for (int i = 0; i < this.fields.length; ++i) {
+            for (int j = 0; j < this.fields[i].length; ++j) {
+                Field f = this.fields[i][j];
+
+                if (f.hasScore()) {
+                    ++scoreLeft;
+                }
+            }
+        }
+
+        return scoreLeft;
     }
 
+    /**
+     * Gets a boolean value indicating whether there is any score left, or not.
+     * @return true, if any score has left; otherwise false.
+     */
     public boolean hasScoreLeft() {
         return this.scoreLeft() != 0;
     }
 
+    /**
+     * Gets a boolean value indicating whether the player is alive, or not.
+     * @return true, if the player is alive; otherwise false.
+     */
     public boolean playerIsAlive() {
         return this.player.alive();
     }
