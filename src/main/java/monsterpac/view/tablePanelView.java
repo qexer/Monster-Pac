@@ -16,9 +16,11 @@ import java.util.Map.Entry;
 import javax.swing.BorderFactory;
 import javax.swing.border.Border;
 import monsterpac.domain.Enemy;
+import monsterpac.domain.Field;
 import monsterpac.domain.Movable;
 import monsterpac.domain.Player;
 import monsterpac.domain.Position;
+import monsterpac.main.Main;
 
 /**
  *
@@ -58,9 +60,30 @@ public class tablePanelView extends JPanel {
                 ++i;
             }
         }
+        
+        this.drawWalls( Main.controller.getGame().getTable().getFields() );
+        this.drawElements( Main.controller.getGame().getTable().getPositions() );
     }
     
-    public void drawElements( HashMap< Movable, Position > positions ) {
+    public void drawWalls( Field[][] fields ) {
+        for ( int i = 0; i < fields.length; ++i )  {
+            for ( int j = 0; j < fields[i].length; ++j ) {
+                Field f = fields[i][j];
+                
+                tablePanelViewItem item = this.getItemByPos(new Position(i,j));
+                
+                if ( !f.passable() ) {
+                    item.setSymbol(tablePanelViewItem.SYMBOL_WALL);
+                }
+                else if ( f.hasScore() ) {
+                    item.setSymbol(tablePanelViewItem.SYMBOL_ITEM);
+                }
+            }
+        }
+    }
+    
+    public void drawElements( HashMap<Movable, Position> positions ) {
+        
          Iterator i = positions.entrySet().iterator();
             while (i.hasNext()) {
                 Entry pair = (Entry)i.next();
@@ -75,9 +98,6 @@ public class tablePanelView extends JPanel {
                 }
                 else if ( m instanceof Player ) {
                     item.setSymbol( tablePanelViewItem.SYMBOL_PLAYER );
-                }
-                else {
-                    item.setSymbol( tablePanelViewItem.SYMBOL_ITEM );
                 }
             }
     }

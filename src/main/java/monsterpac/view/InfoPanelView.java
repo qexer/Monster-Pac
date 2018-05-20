@@ -7,6 +7,7 @@ package monsterpac.view;
 
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import monsterpac.main.Main;
 
 /**
  *
@@ -27,6 +28,9 @@ public class InfoPanelView extends JPanel {
         
         this.add( this.alive );
         this.add( this.score );
+        
+        this.setScore( Main.controller.getGame().getTable().getPlayer().getScore() );
+        this.setAlive(Main.controller.getGame().getTable().playerIsAlive());
     }
     
     public void setScore( int score ) {

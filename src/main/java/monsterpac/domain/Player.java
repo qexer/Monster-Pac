@@ -11,13 +11,13 @@ public class Player extends Movable {
      * A játékos pontszáma
      * @return pontszám
      */
-    int getScore(){ return score; }
+    public int getScore(){ return score; }
 
     /**
      * A játékos életben van-e még?
      * @return él-e?
      */
-    boolean alive(){ return isAlive; }
+    public boolean alive(){ return isAlive; }
 
     /**
      * Ha a játékos elhalálozik, akkor ez a metódus felelős az isAlive adattag megváltoztatásáért.

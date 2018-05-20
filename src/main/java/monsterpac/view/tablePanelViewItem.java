@@ -6,6 +6,7 @@
 package monsterpac.view;
 
 import javax.swing.JLabel;
+import javax.swing.SwingConstants;
 import monsterpac.domain.Position;
 
 /**
@@ -18,6 +19,7 @@ public class tablePanelViewItem extends JLabel{
     public static final int SYMBOL_PLAYER = 1;
     public static final int SYMBOL_ENEMY = 2;
     public static final int SYMBOL_ITEM = 3;
+    public static final int SYMBOL_WALL = 4;
     
     private Position pos;
     private int symbol;
@@ -42,18 +44,27 @@ public class tablePanelViewItem extends JLabel{
         switch ( this.symbol ) {
             case tablePanelViewItem.SYMBOL_EMPTY:
                 this.setText("");
+                this.setHorizontalAlignment(SwingConstants.CENTER);
                 break;
                 
             case tablePanelViewItem.SYMBOL_PLAYER:
                 this.setText(" -o- ");
+                this.setHorizontalAlignment(SwingConstants.CENTER);
                 break;
                 
             case tablePanelViewItem.SYMBOL_ENEMY:
-                this.setText(" -X- ");
+                this.setText(" -x- ");
+                this.setHorizontalAlignment(SwingConstants.CENTER);
                 break;
                 
             case tablePanelViewItem.SYMBOL_ITEM:
                 this.setText(" O ");
+                this.setHorizontalAlignment(SwingConstants.CENTER);
+                break;
+                
+            case tablePanelViewItem.SYMBOL_WALL:
+                this.setText("|#|");
+                this.setHorizontalAlignment(SwingConstants.CENTER);
                 break;
         }
     }

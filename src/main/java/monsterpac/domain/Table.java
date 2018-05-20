@@ -193,4 +193,12 @@ public class Table {
     public boolean playerIsAlive() {
         return this.player.alive();
     }
+    
+    public HashMap<Movable, Position> getPositions() {
+        return this.positions;
+    }
+    
+    public Field[][] getFields() {
+        return this.fields;
+    }
 }

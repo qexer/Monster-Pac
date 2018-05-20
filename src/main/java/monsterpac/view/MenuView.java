@@ -22,8 +22,8 @@ import monsterpac.main.Main;
  */
 public class MenuView extends BaseView implements ActionListener {
     
-    public MenuView( GameController controller ) {
-        super( controller );
+    public MenuView() {
+        super();
         this.title( "Menu" );
         this.init();
     }
