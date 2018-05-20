@@ -1,3 +1,5 @@
+import monsterpac.domain.Movable;
+
 /**
  * <h1>Field osztály</h1>
  * A mezők reprezentálására szolgál.

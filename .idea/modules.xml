@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/Monster-Pac.iml" filepath="$PROJECT_DIR$/.idea/modules/Monster-Pac.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/Monster-Pac_main.iml" filepath="$PROJECT_DIR$/.idea/modules/Monster-Pac_main.iml" group="Monster-Pac" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Monster-Pac_test.iml" filepath="$PROJECT_DIR$/.idea/modules/Monster-Pac_test.iml" group="Monster-Pac" />
     </modules>
   </component>
 </project>
