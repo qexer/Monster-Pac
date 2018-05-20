@@ -1,4 +1,4 @@
-// TODO: import Movable
+import monsterpac.domain.Movable;
 
 public class Field {
     private Movable mov;
