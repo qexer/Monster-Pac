@@ -12,18 +12,20 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import monsterpac.domain.GameController;
+import monsterpac.domain.Table;
+import monsterpac.main.Main;
 
 /**
  *
  * @author still
  */
-public class GameView extends BaseView{
+public class GameView extends BaseView implements Runnable{
     
     private InfoPanelView info;
     private tablePanelView table;
     
-    public GameView( GameController controller ) {
-        super( controller );
+    public GameView() {
+        super();
         this.title( "Game" );
         this.info = new InfoPanelView();
         this.table = new tablePanelView();
@@ -50,11 +52,15 @@ public class GameView extends BaseView{
         this.addPane( this.table );
     }
     
-    public void afterGameRun() {
+    @Override
+    public void run() {
         this.updateView();
     }
     
     private void updateView() {
+        Table t = Main.controller.getGame().getTable();
         
+        this.info.setScore( t.getPlayer().getScore() );
+        this.info.setAlive(t.playerIsAlive());
     }
 }

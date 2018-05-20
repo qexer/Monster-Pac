@@ -16,6 +16,7 @@ import java.util.Map.Entry;
 import javax.swing.BorderFactory;
 import javax.swing.border.Border;
 import monsterpac.domain.Enemy;
+import monsterpac.domain.Field;
 import monsterpac.domain.Movable;
 import monsterpac.domain.Player;
 import monsterpac.domain.Position;
@@ -60,7 +61,24 @@ public class tablePanelView extends JPanel {
         }
     }
     
-    public void drawElements( HashMap< Movable, Position > positions ) {
+    public void initElements( Field[][] fields ) {
+        for ( int i = 0; i < fields.length; ++i )  {
+            for ( int j = 0; j < fields[i].length; ++j ) {
+                Field f = fields[i][j];
+                
+                tablePanelViewItem item = this.getItemByPos(new Position(i,j));
+                        
+                Movable m = f.getMovable();
+                
+                if ( m != null && m instanceof Player ) {
+                    
+                }
+            }
+        }
+    }
+    
+    public void drawElements( HashMap<Movable, Position> positions ) {
+        
          Iterator i = positions.entrySet().iterator();
             while (i.hasNext()) {
                 Entry pair = (Entry)i.next();

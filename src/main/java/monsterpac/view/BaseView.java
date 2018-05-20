@@ -30,11 +30,8 @@ public class BaseView extends JFrame {
     
     protected final ArrayList<BaseView> views;
     
-    protected GameController controller;
-    
-    public BaseView( GameController controller ) {
+    public BaseView() {
         super();
-        this.controller = controller;
         this.setDefaultCloseOperation( EXIT_ON_CLOSE );
         this.setResizable(false);
         this.setSize(480, 640);
@@ -75,9 +72,5 @@ public class BaseView extends JFrame {
         this.getContentPane().add(p);
         this.pack();
         this.open();
-    }
-    
-    public GameController getController() {
-        return this.controller;
     }
 }

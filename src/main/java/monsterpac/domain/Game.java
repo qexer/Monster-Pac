@@ -45,4 +45,8 @@ public class Game {
         }
         return this.table.playerIsAlive();
     }
+    
+    public Table getTable() {
+        return this.table;
+    }
 }

@@ -18,6 +18,7 @@ public class tablePanelViewItem extends JLabel{
     public static final int SYMBOL_PLAYER = 1;
     public static final int SYMBOL_ENEMY = 2;
     public static final int SYMBOL_ITEM = 3;
+    public static final int SYMBOL_WALL = 4;
     
     private Position pos;
     private int symbol;
@@ -54,6 +55,10 @@ public class tablePanelViewItem extends JLabel{
                 
             case tablePanelViewItem.SYMBOL_ITEM:
                 this.setText(" O ");
+                break;
+                
+            case tablePanelViewItem.SYMBOL_WALL:
+                this.setText("|#|");
                 break;
         }
     }

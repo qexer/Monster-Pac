@@ -18,12 +18,13 @@ public class Main {
     
     public static MenuView menu;
     public static GameView table;
+    public static GameController controller;
     
     public static void main( String args[] ) {
-        GameController controller = Factory.createGameController();
+        Main.controller = Factory.createGameController();
         
-        Main.menu = new MenuView( controller );
-        Main.table = new GameView( controller );
+        Main.menu = new MenuView();
+        Main.table = new GameView();
         
         Main.table.close();
         Main.menu.open();

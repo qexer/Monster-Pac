@@ -64,4 +64,8 @@ public class GameController {
         }
 
     }
+    
+    public Game getGame() {
+        return this.game;
+    }
 }
