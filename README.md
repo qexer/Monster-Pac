@@ -47,6 +47,10 @@ A diagram frissítéséhez
 7. az új képpel írd felül a [class_diagram.png](/img/class_diagram.png) fájlt	
 8. commit, push, chill
 
+### Tesztek eredménye
+
+Lásd a (nem build server által generált) _Test Summary_-t [itt](http://people.inf.elte.hu/ithil/monsterpac-test/index.html)!
+
 ### Tesztlefedettség
 
 Lásd a (nem build server által generált) _Code Coverage Report_-ot [itt](http://people.inf.elte.hu/ithil/monsterpac-coverage/index.html)!
