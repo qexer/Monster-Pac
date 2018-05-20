@@ -45,21 +45,13 @@ public class Table {
         
 	public Table( Player player, Field[][] fields ) {
             
-		this.player = player;
-		this.fields = fields;
-                
-                this.movables = this.getMovablesFromFields();
-		this.initialScore = this.getInitialScoreFromField();
+            this.player = player;
+            this.fields = fields;
 
-		//this.positions = new HashMap<>();
-
-                //@TODO: this.positions feltöltése, amint ki lehet szedni a movable-ből a pozíciót
-		for ( Movable m : movables ) {
-			//@TODO movable-nek poziciot adni, és belerakni a positionsbe
-			Position p = new Position(0,0); //x, y
-
-			this.positions.put( m, p);
-		}
+            this.movables = this.getMovablesFromFields();
+            this.initialScore = this.getInitialScoreFromField();
+            this.positions = this.getPositionsFromMovables();
+            
 	}
         
         /**
@@ -83,6 +75,10 @@ public class Table {
             return m;
         }
         
+        /**
+         * Gets the initial score from the fields array
+         * @return The initial score
+         */
         private int getInitialScoreFromField() {
             int is = 0;
             
@@ -98,7 +94,31 @@ public class Table {
             
             return is;
         }
+        
+        /**
+         * Gets the position and movable HashMap from movables property
+         * @return The hashmap contains the movables and positions
+         */
+        private HashMap<Movable, Position> getPositionsFromMovables() {
+            
+            HashMap<Movable, Position> pos = new HashMap<>();
+            Position p;
+            
+            for ( Movable m : movables ) {
+                if( m instanceof Enemy ) {
+                    p = m.getPosition();
+                    pos.put( m, p );
+                }
+            }
+            
+            return pos;
+        }
 
+        /**
+         * 
+         * @param p The target position object
+         * @return true, if positions is out of the table; false otherwise
+         */
 	private boolean outOfRange( Position p ) {
 		int x = p.getX();
 		int y = p.getY();
@@ -109,14 +129,27 @@ public class Table {
 		);
 	}
 
+        /**
+         * Get a field by its position
+         * @param p The position
+         * @return The field of that position
+         */
 	private Field getFieldByPos( Position p ) {
 		return this.fields[p.getX()][p.getY()];
 	}
 
+        /**
+         * Move a movable to a new position
+         * @param m The movable object
+         * @param p The new position
+         */
 	private void moveTo( Movable m, Position p ) {
 		this.positions.put(m, p);
 	}
 
+        /**
+         * Moves all movable to a new position
+         */
 	public void moveAll() {
 		for ( Movable m : movables ) {
 			Position current_position = this.positions.get(m);
