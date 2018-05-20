@@ -1,3 +1,5 @@
+package monsterpac.domain;
+
 /**
  * <h1>Orientations osztály</h1>
  * Az irányok reprezentálására szolgál.

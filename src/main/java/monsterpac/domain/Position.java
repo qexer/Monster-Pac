@@ -1,3 +1,5 @@
+package monsterpac.domain;
+
 /**
  * <h1>Position osztály</h1>
  * A táblán elhelyezett elemek pozíciójának leírására szolgál.

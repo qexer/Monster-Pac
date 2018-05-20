@@ -1,4 +1,4 @@
-import monsterpac.domain.Movable;
+package monsterpac.domain;
 
 /**
  * <h1>Field osztály</h1>

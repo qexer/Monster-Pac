@@ -1,3 +1,4 @@
+package monsterpac.domain;
 /**
  * <h1>Player osztály</h1>
  * A táblán elhelyezkedő játékos reprezentálására szolgál.
@@ -30,6 +31,6 @@ public class Player extends Movable {
     @Override
     void interactWith(Field f){
         if(f.hasScore()){f.pickUpScore();}
-        if(f.getMovable().getClass() != this.getClass() && f.getMovable().getClass() != null){ die(); }
+        if(f.getMovable() instanceof Enemy){ die(); }
     }
 }
