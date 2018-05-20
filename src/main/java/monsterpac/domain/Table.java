@@ -1,106 +1,196 @@
 package monsterpac.domain;
 
 import java.util.ArrayList;
-import java.util.Map;
 import java.util.HashMap;
 
+/**
+ * Responsible for controlling movables, collision detection, and interactions between movables.
+ */
 public class Table {
-	/**
-	* Init score
-	*/
-	private int initialScore;
 
-	/**
-	* The Player object
-	*/
-	private Player player;
+    /**
+     * Vertical length of table (height)
+     */
+    private final int FIELD_X_MAX;
 
-	/**
-	* List of enemys
-	*/
-	private ArrayList<Movable> movables;
+    /**
+     * Horizontal length of table (width)
+     */
+    private final int FIELD_Y_MAX;
 
-	/**
-	* Fields of the monsterpac.domain.Table
-	*/
-	private Field[][] fields;
+    /**
+     * The Player object
+     */
+    private final Player player;
 
-	/**
-	* Vertical length of table (height)
-	*/
-	private final int FIELD_X_MAX = 10;
-	/**
-	* Horizontal length of table (width)
-	*/
-	private final int FIELD_Y_MAX = 10;
+    /**
+     * List of movables
+     */
+    private final ArrayList<Movable> movables;
 
-	/**
-	* Positions of Movables
-	*/
-	private HashMap<Movable,Position> positions;
+    /**
+     * Fields of the Table
+     */
+    private final Field[][] fields;
+
+    /**
+     * Positions of Movables
+     */
+    private HashMap<Movable, Position> positions;
 
 
-	public Table(Player player, Field[][] fields) {
-		this.player = player;
+    /**
+     * Creates a new instance of Table.
+     * @param player The player on the table.
+     * @param fields The fields of the table.
+     */
+    public Table(Player player, Field[][] fields) {
 
-		this.movables = new ArrayList<>();
-		//@TODO: Enemyk feltöltése
+        this.player = player;
+        this.fields = fields;
+        this.FIELD_X_MAX = fields.length;
+        this.FIELD_Y_MAX = fields[0].length;
 
-		this.fields = new Field[this.FIELD_X_MAX][this.FIELD_Y_MAX]; //@TODO: mező mérete
+        this.movables = this.getMovablesFromFields();
+        this.positions = this.getPositionsOfMovablesFromFields();
 
-		this.initialScore = 0; //@TODO: pont meghatározása
+    }
 
-		this.positions = new HashMap<>();
+    /**
+     * Get the list of movables from Fields property
+     *
+     * @return List of movables
+     */
+    private ArrayList<Movable> getMovablesFromFields() {
 
-		for ( Movable m : movables ) {
-			//@TODO movable-nek poziciot adni, és belerakni a positionsbe
-			Position p = new Position(0,0); //x, y
+        ArrayList<Movable> movables = new ArrayList<>();
 
-			this.positions.put( m, p);
-		}
-	}
+        for (int i = 0; i < this.fields.length; ++i) {
+            for (int j = 0; j < this.fields[i].length; ++j) {
+                Field f = this.fields[i][j];
 
-	private boolean outOfRange( Position p ) {
-		int x = p.getX();
-		int y = p.getY();
+                if (f.getMovable() != null) {
+                    movables.add(f.getMovable());
+                }
+            }
+        }
 
-		return ( 
-			x < 0 || x > this.FIELD_X_MAX ||
-			y < 0 || y > this.FIELD_Y_MAX 
-		);
-	}
+        return movables;
+    }
 
-	private Field getFieldByPos( Position p ) {
-		return this.fields[p.getX()][p.getY()];
-	}
+    /**
+     * Gets the position and movable HashMap from fields matrix
+     *
+     * @return The hashmap contains the movables and positions
+     */
+    private HashMap<Movable, Position> getPositionsOfMovablesFromFields() {
 
-	private void moveTo( Movable m, Position p ) {
-		this.positions.put(m, p);
-	}
+        HashMap<Movable, Position> positions = new HashMap<>();
 
-	public void moveAll() {
-		for ( Movable m : movables ) {
-			Position current_position = this.positions.get(m);
+        for (int i = 0; i < this.fields.length; ++i) {
+            for (int j = 0; j < this.fields[i].length; ++j) {
+                Field field = this.fields[i][j];
 
-			Position new_position = m.moveFrom(current_position);
+                if (field.getMovable() != null) {
+                    positions.put(field.getMovable(), new Position(i, j));
+                }
+            }
+        }
+        return positions;
+    }
 
-			if ( !this.outOfRange( new_position ) && this.getFieldByPos( new_position ).passable() ) {
-				m.interactWith( this.getFieldByPos( new_position ) );
-				moveTo(m, new_position);
-			}
+    /**
+     * @param p The target position object
+     * @return true, if positions is out of the table; false otherwise
+     */
+    private boolean outOfRange(Position p) {
+        int x = p.getX();
+        int y = p.getY();
 
-		}
-	}
+        return (
+                x < 0 || x > this.FIELD_X_MAX ||
+                        y < 0 || y > this.FIELD_Y_MAX
+        );
+    }
 
-	public Player getPlayer() { return this.player; }
+    /**
+     * Get a field by its position
+     *
+     * @param p The position
+     * @return The field of that position
+     */
+    private Field getFieldByPos(Position p) {
+        return this.fields[p.getX()][p.getY()];
+    }
 
-	public int scoreLeft() { return this.initialScore; }
+    /**
+     * Move a movable to a new position
+     *
+     * @param m The movable object
+     * @param p The new position
+     */
+    private void moveTo(Movable m, Position p) {
+        this.positions.put(m, p);
+    }
 
-	public boolean hasScoreLeft(){
-		return this.scoreLeft()!= 0;
-	}
+    /**
+     * Moves all movable to a new position
+     */
+    public void moveAll() {
+        for (Movable m : movables) {
+            Position current_position = this.positions.get(m);
 
-	public boolean playerIsAlive(){
-		return this.player.alive();
-	}
+            Position new_position = m.moveFrom(current_position);
+
+            if (!this.outOfRange(new_position) && this.getFieldByPos(new_position).passable()) {
+                m.interactWith(this.getFieldByPos(new_position));
+                moveTo(m, new_position);
+            }
+
+        }
+    }
+
+    /**
+     * Gets the player.
+     * @return The player.
+     */
+    public Player getPlayer() {
+        return this.player;
+    }
+
+    /**
+     * Get how much score has left.
+     * @return How much score has left.
+     */
+    public int scoreLeft() {
+        int scoreLeft = 0;
+
+        for (int i = 0; i < this.fields.length; ++i) {
+            for (int j = 0; j < this.fields[i].length; ++j) {
+                Field f = this.fields[i][j];
+
+                if (f.hasScore()) {
+                    ++scoreLeft;
+                }
+            }
+        }
+
+        return scoreLeft;
+    }
+
+    /**
+     * Gets a boolean value indicating whether there is any score left, or not.
+     * @return true, if any score has left; otherwise false.
+     */
+    public boolean hasScoreLeft() {
+        return this.scoreLeft() != 0;
+    }
+
+    /**
+     * Gets a boolean value indicating whether the player is alive, or not.
+     * @return true, if the player is alive; otherwise false.
+     */
+    public boolean playerIsAlive() {
+        return this.player.alive();
+    }
 }
