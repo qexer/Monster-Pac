@@ -1,0 +1,82 @@
+[Game
+  |act();
+   playerWon(): boolean;
+   notEnded(): boolean]
+[GameController
+  |timer: Timer
+  |start();
+   private timerTickHandler()]
+[PlayerController
+  |player: Player
+  |handleUserInput(char)]o-[Player]
+[Table
+  |initialScore: int;
+   player: Player;
+   movables: Movable\[\];
+   fields: Field\[\]\[\];
+   positionOfMovables: Map<Movable,Position>
+  |moveAll();
+   scoreLeft(): int;
+   getPlayer(): Player;
+   playerIsAlive(): boolean;
+   hasScoreLeft(): boolean;
+   private outOfRange(Position): boolean;
+   private moveFromTo(Movable, Position, Position)]
+
+[Field
+  |hasScore(): boolean;
+   passable(): boolean;
+   getMovable(): Movable;
+   setMovable(Movable);
+   pickUpScore()]
+
+[<interface> Movable
+  |moveFrom(Position): Position;
+   interactWith(Field)]
+
+[Player
+  |isAlive: boolean
+  |setOrientation(Orientation);
+   moveFrom(Position): Position;
+   interactWith(Field);
+   getScore(): int;
+   alive(): boolean;
+   die()]
+[Enemy
+  |moveFrom(Position): Position;
+   interactWith(Field)]
+[Position
+  |getX(): int;
+   getY(): int]
+[Orientation
+  |UP;
+   LEFT;
+   DOWN;
+   RIGHT]
+
+[Table]o- +[Field]
+[Table]--[<note>moveAll()
+_foreach m in movables
+__positionOfM = positionOfMovables\[m\]
+__newPositionOfM = m.moveFrom(positionOfM)
+__if outOfRange(newPositionOfM)
+___or fieldOn(newPositionOfM).passable() == false
+___then SKIP
+__else
+___target = fieldOn(newPositionOfM)
+___m.interactWith(target)
+___moveFromTo(m, positionOfM, newPositionOfM)
+]
+
+//[Table]o-[Player]
+//[Table]o-1..n[Enemy]
+//[Table]o-1..m[Item]
+
+[GameController]o-[Game]
+
+[Game]o-[Table]
+
+[Field]o-0..1[Movable]
+
+[Movable]<:--[Player]
+[Movable]<:--[Enemy]
