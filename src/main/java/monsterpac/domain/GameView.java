@@ -18,13 +18,13 @@ import javax.swing.JPanel;
  */
 public class GameView extends BaseView{
     
-    private JPanel info;
+    private InfoPanelView info;
     private tablePanelView table;
     
     public GameView( /*GameController controller*/ ) {
         super();
         this.title( "Game" );
-        //this.info = new InfoPanel();
+        this.info = new InfoPanelView();
         this.table = new tablePanelView();
         
         this.init();
@@ -33,10 +33,10 @@ public class GameView extends BaseView{
     public void init() {
         this.setSize( 500, 500 );
         
-//        info.setAlignmentX(Component.CENTER_ALIGNMENT);
-//        info.setMinimumSize(new Dimension(500, 50));
-//        info.setPreferredSize(new Dimension(500, 50));
-//        info.setMaximumSize(new Dimension(500, 50));
+        this.info.setAlignmentX(Component.CENTER_ALIGNMENT);
+        this.info.setMinimumSize(new Dimension(500, 20));
+        this.info.setPreferredSize(new Dimension(500, 20));
+        this.info.setMaximumSize(new Dimension(500, 20));
         
         this.table.setAlignmentX(Component.CENTER_ALIGNMENT);
         this.table.setMinimumSize(new Dimension(500, 500));
@@ -45,10 +45,8 @@ public class GameView extends BaseView{
         this.table.setLayout( new GridLayout(10,10) );
         this.table.init();
         
-        //this.addPane( info );
+        this.addPane( this.info );
         this.addPane( this.table );
-        
-        //this.table.setScore();
     }
     
 }
