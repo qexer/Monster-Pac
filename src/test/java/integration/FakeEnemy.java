@@ -7,7 +7,7 @@ import monsterpac.domain.Position;
 
 public class FakeEnemy extends Enemy {
     @Override
-    public Position moveFrom(Position p) {
+    public Position moveFrom(Position position) {
         return new Position(0,0);
     }
 
