@@ -1,8 +1,13 @@
 package unit;
 
+import monsterpac.domain.Field;
 import monsterpac.domain.Table;
 
 public class FakeTable extends Table {
+
+    public FakeTable(){
+        super(null, new Field[][]{ { } });
+    }
 
     private boolean hasScoreLeft = true;
     private boolean playerIsAlive = true;
