@@ -63,6 +63,7 @@ public class GameView extends BaseView implements Runnable{
         this.info.setScore( t.getPlayer().getScore() );
         this.info.setAlive(t.playerIsAlive());
         
+        this.table.drawWalls( Main.controller.getGame().getTable().getFields() );
         this.table.drawElements( Main.controller.getGame().getTable().getPositions() );
     }
 }
