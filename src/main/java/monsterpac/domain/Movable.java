@@ -12,9 +12,18 @@ public class Movable {
     Position pos;
 
     /**
+     * Getter
+     * @return Az adott elem pozíciója
+     */
+    public Position getPosition() {
+        return pos;
+    }
+
+
+    /**
      * Mozgást leíró metódus. A jelenlegi iránynak megfelelően lép egy mezőt a táblán.
      * @param p Jelenlegi irány
-     * @return
+     * @return Hova fog lépni
      */
     Position MoveFrom(Position p){
         switch(orientations){
