@@ -40,7 +40,7 @@ public class Table {
 	private HashMap<Movable,Position> positions;
 
 
-	public Table( Player player ) {
+	public Table(Player player, Field[][] fields) {
 		this.player = player;
 
 		this.movables = new ArrayList<>();

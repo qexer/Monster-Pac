@@ -6,7 +6,7 @@ public class SpyTable extends Table {
     private boolean actWasCalled = false;
 
     public SpyTable(){
-        super(null);
+        super(null, null);
     }
 
     @Override

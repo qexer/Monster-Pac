@@ -36,5 +36,5 @@ public class Movable {
      * Irányt beállító metódus.
      * @param o Irány
      */
-    void setOrientations(Orientations o){ orientations = o; }
+    public void setOrientations(Orientations o){ orientations = o; }
 }
